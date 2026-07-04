@@ -8,14 +8,12 @@ export default function Rsvp() {
   const [attend, setAttend] = useState(null)
   const [guests, setGuests] = useState('')
   const [sent, setSent] = useState(false)
-  const [busy, setBusy] = useState(false)
 
-  const canSend = name.trim() && attend && !busy
+  const canSend = name.trim() && attend
 
-  async function submit(e) {
+  function submit(e) {
     e.preventDefault()
     if (!canSend) return
-    setBusy(true)
     const payload = {
       name,
       attend: attend === 'yes' ? 'Келемін' : 'Келмеймін',
@@ -31,22 +29,23 @@ export default function Rsvp() {
         second: '2-digit',
       }).format(new Date()),
     }
-    try {
-      if (r.endpoint) {
-        // text/plain → Apps Script веб-аппқа CORS preflight жібермейміз
-        await fetch(r.endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload),
-        })
-      } else {
-        console.log('RSVP (демо):', payload)
-      }
-    } catch {
-      /* всё равно благодарим гостя */
-    } finally {
-      setSent(true)
-      setBusy(false)
+    // Оптимистік UI: бірден рақмет көрсетеміз, сұранысты фонда жібереміз.
+    // Apps Script жауабын күтпейміз — жол кестеге POST сәтінде түседі,
+    // ал редирект/суық старт бірнеше секундқа созылуы мүмкін.
+    setSent(true)
+    if (r.endpoint) {
+      // text/plain → Apps Script веб-аппқа CORS preflight жібермейміз.
+      // keepalive → бет ауысса да сұраныс аяқталады.
+      fetch(r.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      }).catch(() => {
+        /* всё равно благодарим гостя */
+      })
+    } else {
+      console.log('RSVP (демо):', payload)
     }
   }
 
@@ -113,7 +112,7 @@ export default function Rsvp() {
             )}
 
             <button className="submit-btn" type="submit" disabled={!canSend}>
-              {busy ? 'Отправляем…' : r.submit}
+              {r.submit}
             </button>
           </form>
         </Reveal>
