@@ -71,7 +71,7 @@ export const data = {
     submit: 'Жіберу',
     // Google Sheets-ке жіберу: Apps Script веб-апп URL-ін осында қойыңыз
     // (https://script.google.com/macros/s/.../exec). Бос болса — алғысты жергілікті көрсетеді.
-    endpoint: 'https://script.google.com/macros/s/AKfycby64TNc3Ej-F8Ydkw89HI-yShlGctCwtdGOhlawIxoof1D2H1--Tpf_3Fgyepze2VOe/exec',
+    endpoint: 'https://script.google.com/macros/s/AKfycbzAYayTOjSg0cgpYPhXzMIJ2sC5AbseoTiI3Lp79qHx0UxQuy0zZ5a2yU5rPFjHW7bf/exec',
     thanksYes: 'Рақмет! Сізді асыға күтеміз ♥',
     thanksNo: 'Өкінішті. Хабарлағаныңызға рақмет.',
   },

@@ -20,6 +20,16 @@ export default function Rsvp() {
       name,
       attend: attend === 'yes' ? 'Келемін' : 'Келмеймін',
       guests: attend === 'yes' ? guests || '1' : '—',
+      // Алматы уақыты (UTC+5) — жауап берілген сәт
+      time: new Intl.DateTimeFormat('ru-RU', {
+        timeZone: 'Asia/Almaty',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      }).format(new Date()),
     }
     try {
       if (r.endpoint) {
