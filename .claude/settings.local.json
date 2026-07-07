@@ -9,7 +9,24 @@
       "Bash(rm -f public/ring.svg)",
       "Bash(cp \"C:/Users/Lenovo/Downloads/wedding-invite/images/curtain-video.mp4\" public/)",
       "Bash(cp \"C:/Users/Lenovo/Downloads/wedding-invite/images/curtain-open.jpg\" public/)",
-      "mcp__14050375-6885-4dcf-aec7-ed72bac25c6f__create_google_sheet1"
+      "mcp__14050375-6885-4dcf-aec7-ed72bac25c6f__create_google_sheet1",
+      "Bash(git add *)",
+      "Bash(git reset *)",
+      "Bash(git commit -m '@ *)",
+      "Bash(git push *)",
+      "Bash(git commit --amend -m 'Новый текст приглашения в хате, подпись Иген - Мадина *)",
+      "Bash(gh auth *)",
+      "PowerShell(gh auth status 2>&1)",
+      "Bash(git remote *)",
+      "Bash(cp \"/c/Users/User/Downloads/5352915052538829381.jpg\" \"/c/Users/User/Desktop/toiiiiishakk/public/preview.jpg\" && ls -la public/preview.jpg && file public/preview.jpg 2>/dev/null)",
+      "Bash(npm run *)",
+      "Bash(curl -s -m 20 https://rd.toishakiry.online/)",
+      "Bash(curl -s -m 20 -o /dev/null -w \"preview.jpg → HTTP %{http_code}, тип: %{content_type}, размер: %{size_download} байт\\\\n\" https://rd.toishakiry.online/preview.jpg)",
+      "Bash(curl -s -m 20 -A \"WhatsApp/2.23\" https://rd.toishakiry.online/)",
+      "Bash(curl -s -m 20 -A \"WhatsApp/2.23\" -o /dev/null -D - https://rd.toishakiry.online/preview.jpg)",
+      "Bash(curl -s -m 25 -A \"facebookexternalhit/1.1 \\(+http://www.facebook.com/externalhit_uatext.php\\)\" -D /tmp/fbh.txt https://rd.toishakiry.online/ -o /tmp/fbbody.html)",
+      "Read(//tmp/**)",
+      "Bash(command -v magick convert ffmpeg node)"
     ]
   }
 }
