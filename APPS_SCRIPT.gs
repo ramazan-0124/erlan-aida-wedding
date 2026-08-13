@@ -4,9 +4,15 @@
 //    Deploy → Manage deployments → (қарындаш) → New version → Deploy
 //  Сол exec-URL сақталады, data.js өзгертпейсіз.
 //
-//  Кестенің 1-жолы (тақырыптар) — қаласаңыз қолмен қойыңыз:
+//  Google Sheets:
+//    https://docs.google.com/spreadsheets/d/1Oy4HB66fYoKPUerIZMzY0ulrpgmnjtvJmsBkIlP4_HU/edit
+//
+//  Кестенің 2-жолы (тақырыптар):
 //    A: Аты-жөні | B: Қатысу | C: Адам саны | D: Уақыт (Алматы)
 // ════════════════════════════════════════════════════════════════════
+
+var SPREADSHEET_ID = '1Oy4HB66fYoKPUerIZMzY0ulrpgmnjtvJmsBkIlP4_HU';
+var SHEET_NAME = 'Лист1';
 
 function doPost(e) {
   try {
@@ -20,7 +26,7 @@ function doPost(e) {
       'dd.MM.yyyy HH:mm:ss'
     );
 
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+    var sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEET_NAME);
     sheet.appendRow([
       data.name,       // A — Аты-жөні
       data.attend,     // B — Келемін / Келмеймін

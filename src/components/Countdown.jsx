@@ -41,6 +41,7 @@ export default function Countdown() {
           </div>
         ))}
       </div>
+      <div className="countdown__dress">{c.dressCode}</div>
     </div>
   )
 }

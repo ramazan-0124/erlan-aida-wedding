@@ -10,15 +10,13 @@ export default function Venue() {
     <section className="pad center">
       {/* күн блогы (ай · апта күні · сан · уақыт · жыл) */}
       <Reveal className="event-date">
-        <div className="event-date__month">{ed.month}</div>
+        <div className="event-date__month">{ed.label}</div>
         <div className="event-date__row">
           <span className="event-date__rule" />
-          <span className="event-date__side">{ed.weekday}</span>
-          <span className="event-date__day">{ed.day}</span>
-          <span className="event-date__side">{ed.time}</span>
+          <span className="event-date__side">{ed.fullDate}</span>
           <span className="event-date__rule" />
         </div>
-        <div className="event-date__year">{ed.year}</div>
+        <div className="event-date__year">{ed.timeLabel}</div>
       </Reveal>
 
       <Reveal>
@@ -33,6 +31,9 @@ export default function Venue() {
             {v.address.map((a, i) => (
               <p className="venue-addr" key={i}>{a}</p>
             ))}
+            <a className="venue-link" href={v.mapLink} target="_blank" rel="noreferrer">
+              2GIS картасынан қарау
+            </a>
 
             <div className="map-frame">
               <iframe src={v.mapEmbed} title={v.name} loading="lazy" allowFullScreen />
